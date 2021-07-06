@@ -27,3 +27,9 @@ with DAG(
         task_id="show_time",
         bash_command="date",
     )
+
+if __name__ == "__main__":
+    from airflow.utils.state import State
+
+    dag.clear(dag_run_state=State.NONE)
+    dag.run()
